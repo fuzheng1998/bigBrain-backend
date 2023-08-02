@@ -137,14 +137,7 @@ export const register = (email, password, name) => userLock((resolve, reject) =>
                        Quiz Functions
 ***************************************************************/
 
-const newQuizPayload = (name, owner) => ({
-  name,
-  owner,
-  questions: [],
-  thumbnail: null,
-  active: null,
-  createdAt: new Date().toISOString(),
-});
+const newQuizPayload = (name, owner) => new Quiz(name, owner);
 
 export const assertOwnsQuiz = (email, quizId) => quizLock((resolve, reject) => {
   if (!(quizId in quizzes)) {
