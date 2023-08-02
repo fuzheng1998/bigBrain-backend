@@ -8,6 +8,7 @@ import {
   quizQuestionGetCorrectAnswers,
   quizQuestionGetDuration,
 } from './custom';
+import { Admin } from './models/admin';
 
 const lock = new AsyncLock();
 
@@ -124,11 +125,7 @@ export const register = (email, password, name) => userLock((resolve, reject) =>
   if (email in admins) {
     reject(new InputError('Email address already registered'));
   }
-  admins[email] = {
-    name,
-    password,
-    sessionActive: true,
-  };
+  admins[email] = new Admin(email, name, password)
   const token = jwt.sign({ email, }, JWT_SECRET, { algorithm: 'HS256', });
   resolve(token);
 });
