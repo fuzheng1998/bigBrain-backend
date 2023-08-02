@@ -9,7 +9,7 @@
  * @method addQuestion - Adds a question to the quiz
  * @method getQuestions - Gets the questions of the quiz
  *  */
-class Quiz{
+export class Quiz{
     constructor(name, owner){
         this.name = name;
         this.owner = owner;
