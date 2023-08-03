@@ -193,7 +193,7 @@ export const startQuiz = quizId => quizLock((resolve, reject) => {
     reject(new InputError('Quiz already has active session'));
   } else {
     const id = newSessionId();
-    sessions[id] = newSessionPayload(quizId);
+    sessions[id] = new Session(id, quizId);
     resolve(id);
   }
 });

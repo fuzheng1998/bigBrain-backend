@@ -1,5 +1,12 @@
 {
-  "admins": {},
+  "admins": {
+    "hayden@unsw.edu.au": {
+      "email": "hayden@unsw.edu.au",
+      "name": "Harry Jenkins",
+      "password": "adummypassword",
+      "sessionActive": true
+    }
+  },
   "quizzes": {},
   "sessions": {}
 }
