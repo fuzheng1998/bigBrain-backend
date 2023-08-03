@@ -4,8 +4,8 @@ import swaggerUi from "swagger-ui-express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
-import { InputError, AccessError } from "./error";
-import swaggerDocument from "../swagger.json";
+import { InputError, AccessError } from "./src/error";
+import swaggerDocument from "./swagger.json";
 import {
   getEmailFromAuthorization,
   login,
@@ -30,7 +30,7 @@ import {
   getQuestion,
   getAnswers,
   hasStarted,
-} from "./service";
+} from "./src/service";
 import path from "path";
 
 const app = express();
@@ -271,7 +271,7 @@ app.get(
 app.get("/", (req, res) => res.redirect("/docs"));
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-const realPath = path.resolve(__dirname, '../config.json')
+const realPath = path.resolve(__dirname, './config.json')
 const configData = JSON.parse(fs.readFileSync(realPath));
 const port = "BACKEND_PORT" in configData ? configData.BACKEND_PORT : 5000;
 
